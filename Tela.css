@@ -1,0 +1,67 @@
+/* Define a fonte padrão e a cor de fundo da página */
+body {
+    font-family: Arial ;
+    background-color: #f2f2f2;
+  }
+  
+  /* Define o alinhamento e a cor do cabeçalho */
+  h1 {
+    text-align: center;
+    align-items: 100px;
+    color: #333;
+    margin-bottom: 10px;
+    padding: 150px;
+    
+  }
+  
+  /* Define a largura máxima, margem e estilo do formulário */
+  form {
+    max-width: 700px;
+    margin: 10px auto;
+    background-color: #DCDCDC;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  /* Define o estilo do rótulo para cada entrada */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Define o estilo da entrada de texto para cada tipo de entrada */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 30px; /*deixa as abas mais aredondadas */ 
+    border: 5px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* Define o estilo do botão de envio */
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #5F9EA0;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); /*deixa sombra na no quadrado de enviar */
+  }
+  
+  /* Define o estilo do botão de envio quando o mouse passa sobre ele */
+  button[type="submit"]:hover {
+    background-color: #2F4F4F;
+  }
+  

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resultado do Formulário</title>
+  <link rel="stylesheet" href="tel.css">
+</head>
+<body>
+	<h1>Resultado do Formulário</h1>
+
+	<p>Nome: <span id="nome"></span></p>
+	<p>E-mail: <span id="email"></span></p>
+	<p>Telefone: <span id="telefone"></span></p>
+
+	<script src="script.js"></script>
+	<script>
+		const dadosJson = localStorage.getItem("dados");
+		const dados = JSON.parse(dadosJson);
+
+		document.getElementById("nome").textContent = dados.nome;
+		document.getElementById("email").textContent = dados.email;
+		document.getElementById("telefone").textContent = dados.telefone;
+	</script>
+</body>
+</html>

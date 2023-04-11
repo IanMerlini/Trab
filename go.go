@@ -1,48 +1,29 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+    "fmt"
+    "net/http"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method == "POST" {
-			username := r.FormValue("username")
-			password := r.FormValue("email")
-			if username == "" || password == "" {
-				fmt.Fprintf(w, "Por favor, preencha todos os campos.")
-				return
-			}
-			fmt.Fprintf(w, "Login bem-sucedido! Bem-vindo, %s.", username)
-		}
-		fmt.Fprintf(w, `
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<title>Formulário de Contato</title>
-		  <link rel="stylesheet" href="Tela.css">
-		</head>
-		<body>
-			<h1>Formulário de Contato</h1>
-			<form id="formulario">
-				<label for="nome">Nome:</label>
-				<input type="text" id="nome" name="nome"><br>
-		
-				<label for="email">E-mail:</label>
-				<input type="email" id="email" name="email"><br>
-		
-				<label for="telefone">Telefone:</label>
-				<input type="tel" id="telefone" name="telefone"><br>
-		
-				<button type="submit">Enviar</button>
-			</form>
-		
-			<script src="info.js"></script>
-		</body>
-		</html>
-		
-		`)
-	})
-	http.ListenAndServe(":8080", nil)
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        if r.Method == "POST" {
+            // obter os valores dos campos do formulário
+            nome := r.FormValue("nome")
+            email := r.FormValue("email")
+            telefone := r.FormValue("telefone")
+
+            // exibir os valores enviados
+            fmt.Fprintf(w, "Nome: %s\n", nome)
+            fmt.Fprintf(w, "E-mail: %s\n", email)
+            fmt.Fprintf(w, "Telefone: %s\n", telefone)
+        } else {
+            // exibir o formulário
+            http.ServeFile(w, r, "formulario.html")
+        }
+    })
+
+    // iniciar o servidor
+    fmt.Println("Servidor rodando na porta 8080...")
+    http.ListenAndServe(":8080", nil)
 }
